@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Receta - Recetas Deliciosas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="detalle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <div class="nav-left">
+                <a href="index.html" class="home-button">
+                    <i class="fas fa-home"></i>
+                </a>
+                <h1>Recetas Deliciosas</h1>
+            </div>
+            
+        </nav>
+    </header>
+
+    <main class="recipe-detail">
+        <div class="recipe-header">
+            <h2 id="recipeTitle" class="recipe-title">Cargando receta...</h2>
+            <div class="recipe-image-container">
+                <img id="recipeImage" src="" alt="Imagen de la receta">
+            </div>
+            <div class="recipe-meta">
+                <div class="recipe-category" id="recipeCategory"></div>
+                <div class="recipe-time">
+                    <i class="far fa-clock"></i>
+                    <span id="recipeTime"></span>
+                </div>
+                <div class="recipe-difficulty">
+                    <i class="fas fa-signal"></i>
+                    <span id="recipeDifficulty"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="recipe-content">
+            <section class="recipe-description">
+                <h3>Descripción</h3>
+                <p id="recipeDescription"></p>
+            </section>
+
+            <section class="recipe-ingredients">
+                <h3>Ingredientes</h3>
+                <ul id="ingredientsList"></ul>
+            </section>
+
+            <section class="recipe-instructions">
+                <h3>Instrucciones</h3>
+                <ol id="instructionsList"></ol>
+            </section>
+
+            <section class="recipe-tips">
+                <h3>Consejos</h3>
+                <ul id="tipsList"></ul>
+            </section>
+        </div>
+
+        <div class="recipe-navigation">
+            <button id="prevRecipe" class="nav-button">
+                <i class="fas fa-chevron-left"></i> Receta Anterior
+            </button>
+            <button id="nextRecipe" class="nav-button">
+                Siguiente Receta <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Recetas Deliciosas - Todos los derechos reservados</p>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="detalle.js"></script>
+</body>
+</html> 
