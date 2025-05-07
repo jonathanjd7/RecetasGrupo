@@ -3,6 +3,10 @@ const recipeList = document.getElementById('recipeList');
 const searchInput = document.getElementById('search');
 const clearSearchButton = document.getElementById('clearSearch');
 const navButtons = document.querySelectorAll('.nav-button');
+const toggleDarkModeButton = document.getElementById('toggleDarkMode'); // MODO OSCURO
+
+let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+let draggedTaskId = null;
 
 // Estado de la aplicación
 let currentRecipes = [...recipes];
@@ -87,6 +91,22 @@ navButtons.forEach(button => {
     });
 });
 
+// MODO OSCURO: Activar desde botón y mantener estado
+if (localStorage.getItem('darkMode') === 'enabled') {
+    document.body.classList.add('dark-mode');
+}
+
+if (toggleDarkModeButton) {
+    toggleDarkModeButton.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        if (document.body.classList.contains('dark-mode')) {
+            localStorage.setItem('darkMode', 'enabled');
+        } else {
+            localStorage.setItem('darkMode', 'disabled');
+        }
+    });
+}
+
 // Inicializar la aplicación
 document.addEventListener('DOMContentLoaded', () => {
     // Obtener la categoría de la URL si existe
@@ -99,4 +119,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     filterRecipes();
-}); 
+});
