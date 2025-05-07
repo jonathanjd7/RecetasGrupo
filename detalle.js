@@ -47,6 +47,7 @@ function loadRecipe(recipeId) {
 // Función para actualizar los botones de navegación
 function updateNavigation(currentId) {
     const prevButton = document.getElementById('prevRecipe');
+    const homeButton = document.getElementById('homeRecipe');
     const nextButton = document.getElementById('nextRecipe');
     
     const currentIndex = recipes.findIndex(r => r.id === currentId);
@@ -61,7 +62,16 @@ function updateNavigation(currentId) {
     } else {
         prevButton.disabled = true;
     }
-    
+    //Configurar Boton Home
+    if (currentIndex > 0) {
+        const homeRecipe = recipes[currentIndex - 1];
+        homeButton.disabled = false;
+        homeButton.onclick = () => {
+            window.location.href = `index.html?id=${homeRecipe.id}`;
+        };
+    } else {
+        homeButton.disabled = true;
+    }
     // Configurar botón siguiente
     if (currentIndex < recipes.length - 1) {
         const nextRecipe = recipes[currentIndex + 1];
